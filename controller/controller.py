@@ -51,7 +51,7 @@ class Controller:
         else:
             print('Internal error!')
 
-    def edit_contact(self, _note):
+    def edit_note(self, _note):
         if Controller.validate_note_data(self, _note):
             if isinstance(self.__repository, repository.Repository):
                 self.__repository.edit_note(_note)
