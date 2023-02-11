@@ -29,7 +29,6 @@ class Repository:
         return note_id
 
     def save_notes(self, notes):
-        # notes.sort()
         lines = []
         for _note in notes:
             lines.append(self.__mapper.map_to_str(_note))

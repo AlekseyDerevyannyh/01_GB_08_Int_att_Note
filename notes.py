@@ -1,19 +1,13 @@
-from datetime import datetime
-import time
+from model import file_operation
+from model import repository
+from controller import controller
+from view import view
 
-from model import note
 
 if __name__ == '__main__':
-    current_time = datetime.now()
-    time.sleep(2)
-    current_time_2 = datetime.now()
-    time.sleep(2)
-    notes = []
-    notes.append(note.Note('2', 'second note', 'My second note', str(datetime.now())))
-    notes.append(note.Note('1', 'first note', 'My first note', str(current_time)))
-    notes.append(note.Note('3', 'third note', 'My third note', str(current_time_2)))
-    notes[1].set_id('5')
-    notes.sort()
-    for note in notes:
-        print(note)
-    print(len(notes))
+    file = file_operation.FileOperation('notes.csv')
+    repo = repository.Repository(file)
+    _controller = controller.Controller(repo)
+    _view = view.View(_controller)
+    _view.run()
+
