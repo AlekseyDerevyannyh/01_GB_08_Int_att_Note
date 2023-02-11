@@ -12,6 +12,8 @@ if __name__ == '__main__':
     notes.append(note.Note(2, 'second note', 'My second note', str(datetime.now())))
     notes.append(note.Note(1, 'first note', 'My first note', str(current_time)))
     notes.append(note.Note(3, 'third note', 'My third note', str(current_time_2)))
+    notes[1].set_id(5)
     notes.sort()
     for note in notes:
         print(note)
+    print(len(notes))
