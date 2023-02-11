@@ -18,7 +18,7 @@ class Controller:
                     print('Internal error!')
         else:
             print('Internal error!')
-        print('Contact not found!')
+        print('Note not found!')
 
     def read_notes(self):
         if isinstance(self.__repository, repository.Repository):
