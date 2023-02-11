@@ -11,4 +11,7 @@ class MapperCsv:
 
     def map_from_str(self, line):
         lines = line.split(';')
-        return note.Note(lines[0], lines[1], lines[2], lines[3])
+        if len(lines) == 4:
+            return note.Note(lines[0], lines[1], lines[2], lines[3])
+        else:
+            print('Internal error!')
