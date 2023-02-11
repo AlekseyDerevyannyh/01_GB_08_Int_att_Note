@@ -7,7 +7,6 @@ class Controller:
         self.__repository = _repository
 
     def read_note(self, note_id):
-        notes = []
         if isinstance(self.__repository, repository.Repository):
             notes = self.__repository.get_all_notes()
             for _note in notes:
@@ -57,3 +56,23 @@ class Controller:
                 self.__repository.edit_note(_note)
             else:
                 print('Internal error!')
+
+    def find_notes_by_date(self, date_start, date_end):
+        if isinstance(self.__repository, repository.Repository):
+            notes = self.__repository.get_all_notes()
+            if date_start > date_end:
+                tmp = date_start
+                date_start = date_end
+                date_end = tmp
+            find_notes = []
+            for _note in notes:
+                if isinstance(_note, note.Note):
+                    if date_start <= _note.get_date() <= date_end:
+                        find_notes.append(_note)
+                else:
+                    print('Internal error!')
+            if not find_notes:
+                print('Notes not found!')
+            return find_notes
+        else:
+            print('Internal error!')
