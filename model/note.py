@@ -30,7 +30,7 @@ class Note:
         return self.__date_modified
 
     def __str__(self):
-        return 'ID: ' + str(self.__id_note) + '. Title: ' + self.__title + '. Message: ' + self.__msg + \
+        return 'ID: ' + self.__id_note + '. Title: ' + self.__title + '. Message: ' + self.__msg + \
             '. Date modified: ' + self.__date_modified
 
     def __lt__(self, other):
